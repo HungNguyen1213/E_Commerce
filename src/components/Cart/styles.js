@@ -1,6 +1,9 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
+  container: {
+    padding: "0 10%",
+  },
   toolbar: theme.mixins.toolbar,
   title: {
     marginTop: "5%",
