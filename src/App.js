@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { commerce } from "./lib/commerce";
-import { Products, Navbar, Cart } from "./components";
+import { Products, Navbar, Cart, Checkout } from "./components";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -59,6 +59,7 @@ function App() {
               />
             }
           />
+          <Route path="/checkout" element={<Checkout cart={cart} />} />
         </Routes>
       </div>
     </Router>

@@ -14,13 +14,14 @@ function Cart({
   const classes = useStyles();
   if (!cart.line_items) return "Loading...";
   const isEmpty = !cart.line_items.length;
-  const EmptyCard = () => {
+  const EmptyCart = () => (
     <Typography variant="subtitle1">
+      {`You have no items in your shopping cart, `}
       <Link to="/" className={classes.link}>
-        You have no items in your shopping cart, start adding some!
+        start adding some!
       </Link>
-    </Typography>;
-  };
+    </Typography>
+  );
   const FilledCart = () => (
     <>
       <Grid container spacing={3}>
@@ -52,6 +53,8 @@ function Cart({
 
           <Button
             className={classes.checkoutButton}
+            component={Link}
+            to="/checkout"
             size="large"
             type="button"
             variant="contained"
@@ -69,7 +72,7 @@ function Cart({
       <Typography className={classes.title} variant="h4" gutterBottom>
         Your Shopping Cart
       </Typography>
-      {isEmpty ? <EmptyCard /> : <FilledCart />}
+      {isEmpty ? <EmptyCart /> : <FilledCart />}
     </Container>
   );
 }
