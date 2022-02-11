@@ -16,6 +16,7 @@ import FormInput from "./CustomTextField";
 
 function AddressForm({ checkoutToken, next }) {
   const methods = useForm();
+  console.log(methods.handleSubmit);
   const [shippingCountries, setShippingCountries] = useState([]);
   const [shippingCountry, setShippingCountry] = useState("");
   const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
@@ -81,9 +82,9 @@ function AddressForm({ checkoutToken, next }) {
           onSubmit={methods.handleSubmit((data) =>
             next({
               ...data,
+              shippingOption,
               shippingCountry,
               shippingSubdivision,
-              shippingOption,
             })
           )}
         >
